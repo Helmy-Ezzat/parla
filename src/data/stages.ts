@@ -14,175 +14,181 @@ export const BEGINNER_STAGES: Stage[] = [
     },
     xpReward: 50,
     steps: [
+      // المرحلة 1: الفهم (Understand) - 5 جمل
       {
-        npc: 'Buongiorno!',
-        npc_ar: 'صباح الخير!',
-        hint: 'ردّ بنفس تحية الصباح',
-        choices: [
-          { it: 'Buongiorno!', ar: 'صباح الخير!', correct: true },
-          { it: 'Buonasera!', ar: 'مساء الخير!', correct: false },
-          { it: 'Buonanotte!', ar: 'تصبح على خير!', correct: false }
-        ],
-        teach: 'Buongiorno = صباح الخير. تُستخدم من الصباح حتى الغداء تقريباً.'
+        type: 'understand',
+        speaker: 'Marco',
+        speakerEmoji: '👨',
+        text: 'Buongiorno!',
+        textAr: 'صباح الخير!'
       },
       {
-        npc: 'Come stai?',
-        npc_ar: 'كيف حالك؟',
-        hint: 'قل إنك بخير وشكراً',
+        type: 'understand',
+        speaker: 'أنت',
+        speakerEmoji: '🙋',
+        text: 'Buongiorno!',
+        textAr: 'صباح الخير!'
+      },
+      {
+        type: 'understand',
+        speaker: 'Marco',
+        speakerEmoji: '👨',
+        text: 'Come stai?',
+        textAr: 'كيف حالك؟'
+      },
+      {
+        type: 'understand',
+        speaker: 'أنت',
+        speakerEmoji: '🙋',
+        text: 'Bene, grazie!',
+        textAr: 'بخير، شكراً!'
+      },
+      {
+        type: 'understand',
+        speaker: 'Marco',
+        speakerEmoji: '👨',
+        text: 'Arrivederci!',
+        textAr: 'مع السلامة!'
+      },
+      
+      // المرحلة 2: الاختيار (Recognition)
+      {
+        type: 'recognition',
+        audio: 'Come stai?',
+        audioAr: 'كيف حالك؟',
         choices: [
           { it: 'Bene, grazie!', ar: 'بخير، شكراً!', correct: true },
-          { it: 'Male.', ar: 'بشكل سيء.', correct: false },
-          { it: 'Non lo so.', ar: 'لا أعرف.', correct: false }
+          { it: 'Buongiorno!', ar: 'صباح الخير!', correct: false },
+          { it: 'Arrivederci!', ar: 'مع السلامة!', correct: false }
         ],
-        teach: 'Bene = بخير. Grazie = شكراً. معاً: الرد الأكثر شيوعاً في إيطاليا.'
+        teach: 'Bene = بخير. Grazie = شكراً. الرد الأكثر شيوعاً في إيطاليا.'
       },
       {
-        npc: 'Buonasera!',
-        npc_ar: 'مساء الخير!',
-        hint: 'ردّ بتحية المساء',
+        type: 'recognition',
+        audio: 'Buonasera!',
+        audioAr: 'مساء الخير!',
         choices: [
           { it: 'Buonasera!', ar: 'مساء الخير!', correct: true },
-          { it: 'Buongiorno!', ar: 'صباح الخير! (وقت خاطئ)', correct: false },
-          { it: 'Ciao!', ar: 'باي! (غير رسمي)', correct: false }
+          { it: 'Buongiorno!', ar: 'صباح الخير!', correct: false },
+          { it: 'Ciao!', ar: 'باي!', correct: false }
         ],
         teach: 'Buonasera = مساء الخير. تُستخدم من بعد الغداء حتى الليل.'
       },
+      
+      // المرحلة 3: المحادثة (Production)
       {
-        npc: 'Arrivederci!',
-        npc_ar: 'مع السلامة!',
-        hint: 'ودّعه بنفس الطريقة',
-        choices: [
-          { it: 'Arrivederci!', ar: 'مع السلامة!', correct: true },
-          { it: 'Buongiorno!', ar: 'صباح الخير!', correct: false },
-          { it: 'Grazie!', ar: 'شكراً!', correct: false }
-        ],
-        teach: 'Arrivederci = مع السلامة (رسمي). Ciao = باي (غير رسمي مع الأصدقاء فقط).'
+        type: 'production',
+        prompt: 'Buongiorno!',
+        promptAr: 'صباح الخير!',
+        expectedAnswer: 'Buongiorno!',
+        expectedAnswerAr: 'صباح الخير!',
+        acceptedVariations: ['buongiorno', 'Buongiorno', 'BUONGIORNO'],
+        teach: 'Buongiorno = صباح الخير. تُستخدم من الصباح حتى الغداء.'
+      },
+      {
+        type: 'production',
+        prompt: 'Come stai?',
+        promptAr: 'كيف حالك؟',
+        expectedAnswer: 'Bene, grazie!',
+        expectedAnswerAr: 'بخير، شكراً!',
+        acceptedVariations: ['bene grazie', 'Bene, grazie', 'bene, grazie!', 'Bene grazie'],
+        teach: 'Bene, grazie = بخير، شكراً. الرد الأكثر شيوعاً.'
+      },
+      {
+        type: 'production',
+        prompt: 'Arrivederci!',
+        promptAr: 'مع السلامة!',
+        expectedAnswer: 'Arrivederci!',
+        expectedAnswerAr: 'مع السلامة!',
+        acceptedVariations: ['arrivederci', 'Arrivederci', 'ARRIVEDERCI'],
+        teach: 'Arrivederci = مع السلامة (رسمي). Ciao = باي (غير رسمي).'
       }
     ]
   },
   {
     id: 'b2',
-    emoji: '🙏',
-    title: 'شكراً وعفواً',
-    setting: 'في محل صغير. البائع يعطيك كيس التسوق.',
-    mission: 'تعلّم كلمات الشكر والاعتذار الأساسية.',
+    emoji: '☕',
+    title: 'في المقهى',
+    setting: 'صباح في مقهى إيطالي. تريد طلب قهوة.',
+    mission: 'تعلّم كيف تطلب في المقهى.',
     char: {
-      name: 'Anna',
-      role: 'صاحبة محل',
-      emoji: '👩'
+      name: 'Luca',
+      role: 'نادل المقهى',
+      emoji: '👨‍🍳'
     },
     xpReward: 50,
     steps: [
+      // الفهم
       {
-        npc: 'Prego, ecco la borsa.',
-        npc_ar: 'تفضل، هذا الكيس.',
-        hint: 'اشكرها',
-        choices: [
-          { it: 'Grazie!', ar: 'شكراً!', correct: true },
-          { it: 'Arrivederci!', ar: 'مع السلامة!', correct: false },
-          { it: 'Buongiorno!', ar: 'صباح الخير!', correct: false }
-        ],
-        teach: 'Grazie = شكراً. الكلمة الأكثر استخداماً في إيطاليا!'
+        type: 'understand',
+        speaker: 'Luca',
+        speakerEmoji: '👨‍🍳',
+        text: 'Buongiorno! Cosa desidera?',
+        textAr: 'صباح الخير! ماذا تريد؟'
       },
       {
-        npc: 'Prego!',
-        npc_ar: 'عفواً / على الرحب!',
-        hint: 'قل لها ألف شكر',
+        type: 'understand',
+        speaker: 'أنت',
+        speakerEmoji: '🙋',
+        text: 'Vorrei un caffè, per favore.',
+        textAr: 'أريد قهوة، من فضلك.'
+      },
+      {
+        type: 'understand',
+        speaker: 'Luca',
+        speakerEmoji: '👨‍🍳',
+        text: 'Subito!',
+        textAr: 'حالاً!'
+      },
+      {
+        type: 'understand',
+        speaker: 'Luca',
+        speakerEmoji: '👨‍🍳',
+        text: 'Ecco il caffè. Tre euro.',
+        textAr: 'تفضل القهوة. ثلاثة يورو.'
+      },
+      {
+        type: 'understand',
+        speaker: 'أنت',
+        speakerEmoji: '🙋',
+        text: 'Grazie!',
+        textAr: 'شكراً!'
+      },
+      
+      // الاختيار
+      {
+        type: 'recognition',
+        audio: 'Cosa desidera?',
+        audioAr: 'ماذا تريد؟',
         choices: [
-          { it: 'Grazie mille!', ar: 'ألف شكر!', correct: true },
-          { it: 'No grazie.', ar: 'لا شكراً.', correct: false },
-          { it: 'Scusa.', ar: 'آسف.', correct: false }
+          { it: 'Vorrei un caffè', ar: 'أريد قهوة', correct: true },
+          { it: 'Buongiorno', ar: 'صباح الخير', correct: false },
+          { it: 'Arrivederci', ar: 'مع السلامة', correct: false }
         ],
-        teach: 'Grazie mille = ألف شكر. Prego = عفواً / تفضل — رد على الشكر.'
+        teach: 'Vorrei = أريد (مهذب). Cosa desidera? = ماذا تريد؟'
+      },
+      
+      // المحادثة
+      {
+        type: 'production',
+        prompt: 'Cosa desidera?',
+        promptAr: 'ماذا تريد؟',
+        expectedAnswer: 'Vorrei un caffè',
+        expectedAnswerAr: 'أريد قهوة',
+        acceptedVariations: ['vorrei un caffe', 'Vorrei un caffè', 'vorrei un caffè'],
+        teach: 'Vorrei un caffè = أريد قهوة. Vorrei أكثر أدباً من voglio.'
+      },
+      {
+        type: 'production',
+        prompt: 'Ecco il caffè.',
+        promptAr: 'تفضل القهوة.',
+        expectedAnswer: 'Grazie!',
+        expectedAnswerAr: 'شكراً!',
+        acceptedVariations: ['grazie', 'Grazie', 'GRAZIE', 'grazie!'],
+        teach: 'Grazie = شكراً. الكلمة الأكثر استخداماً في إيطاليا!'
       }
     ]
   }
 ];
 
-export const MAIN_STAGES: Stage[] = [
-  {
-    id: 's1',
-    emoji: '✈️',
-    title: 'المطار — أول دقيقة',
-    setting: 'وصلت للتو لمطار روما فيوميتشينو. ساعة متأخرة. تاكسي ينتظر بالخارج.',
-    mission: 'تحيّ، اسأل عن التاكسي والسعر، اشكر وودّع.',
-    char: {
-      name: 'Paolo',
-      role: 'مسافر إيطالي · متحدث سريع',
-      emoji: '👨‍💼'
-    },
-    xpReward: 80,
-    steps: [
-      {
-        npc: 'Buongiorno! Benvenuto a Roma!',
-        npc_ar: 'صباح الخير! مرحباً بك في روما!',
-        hint: 'ردّ عليه بتحية الصباح',
-        choices: [
-          { it: 'Buongiorno! Grazie!', ar: 'صباح الخير! شكراً!', correct: true },
-          { it: 'Buonanotte!', ar: 'تصبح على خير!', correct: false },
-          { it: 'Arrivederci!', ar: 'مع السلامة!', correct: false }
-        ],
-        teach: 'Buongiorno = صباح الخير (حتى الغداء). Buonanotte = تصبح على خير (النوم فقط).'
-      },
-      {
-        npc: 'Stai bene? Hai bisogno di aiuto?',
-        npc_ar: 'هل أنت بخير؟ هل تحتاج مساعدة؟',
-        hint: 'قل إنك تحتاج مساعدة للتاكسي',
-        choices: [
-          { it: "Sì, grazie! Dov'è il taxi?", ar: 'نعم، شكراً! أين التاكسي؟', correct: true },
-          { it: 'No, sto bene.', ar: 'لا، أنا بخير.', correct: false },
-          { it: 'Non capisco.', ar: 'لا أفهم.', correct: false }
-        ],
-        teach: "Dov'è? = أين هو؟ — السؤال الأساسي للاستفسار عن المكان."
-      },
-      {
-        npc: "Il taxi è fuori, all'uscita principale.",
-        npc_ar: 'التاكسي بالخارج عند المخرج الرئيسي.',
-        hint: 'اشكره بحرارة',
-        choices: [
-          { it: 'Grazie mille! Sei molto gentile!', ar: 'ألف شكر! أنت لطيف جداً!', correct: true },
-          { it: 'Va bene.', ar: 'حسناً.', correct: false },
-          { it: 'Arrivederci!', ar: 'مع السلامة!', correct: false }
-        ],
-        teach: 'Sei molto gentile = أنت لطيف جداً — جملة تُقدَّر كثيراً.'
-      }
-    ]
-  },
-  {
-    id: 's2',
-    emoji: '☕',
-    title: 'المقهى — الطلب السريع',
-    setting: 'صباح روما. المقهى مزدحم. زبائن خلفك ينتظرون.',
-    mission: 'اطلب بسرعة وبإيطالية طبيعية. لا وقت للتردد!',
-    char: {
-      name: 'Luca',
-      role: 'نادل المقهى · سريع',
-      emoji: '👨‍🍳'
-    },
-    xpReward: 90,
-    steps: [
-      {
-        npc: 'Prego! Cosa prende?',
-        npc_ar: 'تفضل! ماذا ستأخذ؟',
-        hint: 'اطلب قهوة وكرواسان',
-        choices: [
-          { it: 'Un caffè e un cornetto, per favore!', ar: 'قهوة وكرواسان من فضلك!', correct: true },
-          { it: 'Non so ancora.', ar: 'لا أعرف بعد.', correct: false },
-          { it: 'Un momento.', ar: 'لحظة.', correct: false }
-        ],
-        teach: 'Cornetto = الكرواسان الإيطالي. Un caffè = قهوة اسبريسو.'
-      },
-      {
-        npc: 'Ecco! Tre euro e cinquanta.',
-        npc_ar: 'تفضل! ثلاثة يورو وخمسون سنتاً.',
-        hint: 'ادفع وأبدِ رأيك بالقهوة',
-        choices: [
-          { it: 'Eccoli! Il caffè è ottimo!', ar: 'تفضل! القهوة رائعة!', correct: true },
-          { it: 'È caro.', ar: 'إنه غالٍ.', correct: false },
-          { it: 'Ok.', ar: 'حسناً.', correct: false }
-        ],
-        teach: 'Ottimo = رائع/ممتاز. Eccoli = تفضل (للمال).'
-      }
-    ]
-  }
-];
+export const MAIN_STAGES: Stage[] = BEGINNER_STAGES;
