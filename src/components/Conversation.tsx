@@ -98,6 +98,9 @@ export default function Conversation({ stage, onComplete, onBack }: Conversation
     const step = stage.steps[session.stepIdx] as RecognitionStep;
     const choice = step.choices[choiceIdx];
     
+    // Speak the selected choice
+    speak(choice.it);
+    
     setSelectedChoice(choiceIdx);
     
     const newTotal = session.total + 1;
@@ -233,6 +236,9 @@ export default function Conversation({ stage, onComplete, onBack }: Conversation
                         : 'bg-white border border-stone-200'
                     }`}
                   >
+                    {msg.emoji && (
+                      <div className="text-4xl mb-2 text-center">{msg.emoji}</div>
+                    )}
                     <div
                       onClick={() => speak(msg.text)}
                       className="font-cormorant text-xl text-gray-900 leading-relaxed mb-1 cursor-pointer hover:text-amber-700 transition-colors"

@@ -10,6 +10,7 @@ export interface UnderstandStep {
   speakerEmoji: string;
   text: string;
   textAr: string;
+  emoji?: string;
   image?: string;
 }
 

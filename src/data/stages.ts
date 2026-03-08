@@ -20,35 +20,40 @@ export const BEGINNER_STAGES: Stage[] = [
         speaker: 'Marco',
         speakerEmoji: '👨',
         text: 'Buongiorno!',
-        textAr: 'صباح الخير!'
+        textAr: 'صباح الخير!',
+        emoji: '☀️'
       },
       {
         type: 'understand',
         speaker: 'أنت',
         speakerEmoji: '🙋',
         text: 'Buongiorno!',
-        textAr: 'صباح الخير!'
+        textAr: 'صباح الخير!',
+        emoji: '👋'
       },
       {
         type: 'understand',
         speaker: 'Marco',
         speakerEmoji: '👨',
         text: 'Come stai?',
-        textAr: 'كيف حالك؟'
+        textAr: 'كيف حالك؟',
+        emoji: '🤔'
       },
       {
         type: 'understand',
         speaker: 'أنت',
         speakerEmoji: '🙋',
         text: 'Bene, grazie!',
-        textAr: 'بخير، شكراً!'
+        textAr: 'بخير، شكراً!',
+        emoji: '😊'
       },
       {
         type: 'understand',
         speaker: 'Marco',
         speakerEmoji: '👨',
         text: 'Arrivederci!',
-        textAr: 'مع السلامة!'
+        textAr: 'مع السلامة!',
+        emoji: '👋'
       },
       
       // المرحلة 2: الاختيار (Recognition)
@@ -124,35 +129,40 @@ export const BEGINNER_STAGES: Stage[] = [
         speaker: 'Luca',
         speakerEmoji: '👨‍🍳',
         text: 'Buongiorno! Cosa desidera?',
-        textAr: 'صباح الخير! ماذا تريد؟'
+        textAr: 'صباح الخير! ماذا تريد؟',
+        emoji: '☕'
       },
       {
         type: 'understand',
         speaker: 'أنت',
         speakerEmoji: '🙋',
         text: 'Vorrei un caffè, per favore.',
-        textAr: 'أريد قهوة، من فضلك.'
+        textAr: 'أريد قهوة، من فضلك.',
+        emoji: '☕'
       },
       {
         type: 'understand',
         speaker: 'Luca',
         speakerEmoji: '👨‍🍳',
         text: 'Subito!',
-        textAr: 'حالاً!'
+        textAr: 'حالاً!',
+        emoji: '⚡'
       },
       {
         type: 'understand',
         speaker: 'Luca',
         speakerEmoji: '👨‍🍳',
         text: 'Ecco il caffè. Tre euro.',
-        textAr: 'تفضل القهوة. ثلاثة يورو.'
+        textAr: 'تفضل القهوة. ثلاثة يورو.',
+        emoji: '💶'
       },
       {
         type: 'understand',
         speaker: 'أنت',
         speakerEmoji: '🙋',
         text: 'Grazie!',
-        textAr: 'شكراً!'
+        textAr: 'شكراً!',
+        emoji: '🙏'
       },
       
       // الاختيار
